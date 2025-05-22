@@ -1,7 +1,6 @@
 "use client";
 
 import { Typography, Box } from "@mui/material";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, EffectFade, Pagination } from "swiper/modules";
 import Image from "next/image";
@@ -20,12 +19,12 @@ export default function ClassicTemplate({
   place,
   message,
 }: {
-  groom: string;
-  bride: string;
-  date: string;
-  time: string;
-  place: string;
-  message: string;
+  groom?: string;
+  bride?: string;
+  date?: string;
+  time?: string;
+  place?: string;
+  message?: string;
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -151,7 +150,7 @@ export default function ClassicTemplate({
                   <br /> 한 사람의 일생이 오기 때문이다.
                 </Typography>
                 <Typography fontSize={16} mt={3} px={5} color="text.secondary">
-                  - 정현종, '방문객'
+                  - 정현종, 방문객
                 </Typography>
                 <Typography fontSize={16} mt={3} px={5} color="text.secondary">
                   저희 두 사람이 함께하는 새로운 시작에 귀한 발걸음으로 축복해
@@ -278,8 +277,8 @@ export default function ClassicTemplate({
                 >
                   WEDDING DAY
                 </Typography>
-                <CustomCalendar date={date} />
-                <CountDown date={date} />
+                <CustomCalendar date={date || ""} />
+                <CountDown date={date || ""} />
               </Box>
             </SectionBox>
           </SwiperSlide>
