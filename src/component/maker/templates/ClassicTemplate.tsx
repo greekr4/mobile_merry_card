@@ -165,7 +165,11 @@ export default function ClassicTemplate({
           </SwiperSlide>
           {/* 꽉찬 사진 */}
           <SwiperSlide>
-            <SectionBox>
+            <SectionBox
+              sx={{
+                padding: "0",
+              }}
+            >
               <Box
                 sx={{
                   width: "100%",
@@ -173,14 +177,15 @@ export default function ClassicTemplate({
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
+                  position: "relative",
+                  aspectRatio: "16/9",
                 }}
               >
                 <Image
                   src="/images/couple1.jpg"
                   alt="결혼식 초대장"
                   style={{ objectFit: "cover" }}
-                  width={400}
-                  height={700}
+                  fill
                 />
               </Box>
             </SectionBox>
