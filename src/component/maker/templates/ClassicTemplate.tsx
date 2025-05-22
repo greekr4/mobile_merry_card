@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import CustomCalendar from "./CustomCalendar";
 import CountDown from "./CountDown";
+import { FamillyContact } from "./FamillyContact";
 
 export default function ClassicTemplate({
   groom,
@@ -280,6 +281,12 @@ export default function ClassicTemplate({
                 <CustomCalendar date={date} />
                 <CountDown date={date} />
               </Box>
+            </SectionBox>
+          </SwiperSlide>
+          {/* 양가 가족 섹션 */}
+          <SwiperSlide>
+            <SectionBox>
+              <FamillyContact />
             </SectionBox>
           </SwiperSlide>
         </Swiper>
