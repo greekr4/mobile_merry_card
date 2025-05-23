@@ -76,7 +76,7 @@ export default function IndexPage() {
                   src="/icons/naver_round.png"
                   text="네이버"
                   onClick={() => {
-                    router.push("/preview");
+                    router.push("/settings");
                   }}
                 />
               </Grid>
@@ -85,7 +85,7 @@ export default function IndexPage() {
                   src="/icons/kakao_round.png"
                   text="카카오"
                   onClick={() => {
-                    router.push("/preview");
+                    router.push("/settings");
                   }}
                 />
               </Grid>
@@ -94,7 +94,7 @@ export default function IndexPage() {
                   src="/icons/google_round.png"
                   text="구글"
                   onClick={() => {
-                    router.push("/preview");
+                    router.push("/settings");
                   }}
                 />
               </Grid>

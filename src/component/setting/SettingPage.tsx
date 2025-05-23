@@ -127,7 +127,7 @@ const SettingPage = () => {
             onClick={checkDomainAvailability}
             sx={{ height: 40 }}
           >
-            중복확인
+            확인
           </Button>
         </Box>
 

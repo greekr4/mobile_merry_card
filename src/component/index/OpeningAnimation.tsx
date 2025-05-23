@@ -11,10 +11,8 @@ export default function OpeningAnimation({ onFinish }: CurtainOpeningProps) {
     return () => clearTimeout(timer);
   }, [onFinish]);
 
-  const silkLaceBgLeft =
-    "linear-gradient(120deg, #fff0f6 60%, #e3c6c6 100%), repeating-linear-gradient(90deg, rgba(255,255,255,0.13) 0 2px, transparent 2px 14px), url('https://www.transparenttextures.com/patterns/lace.png')";
-  const silkLaceBgRight =
-    "linear-gradient(-120deg, #fff0f6 60%, #e3c6c6 100%), repeating-linear-gradient(270deg, rgba(255,255,255,0.13) 0 2px, transparent 2px 14px), url('https://www.transparenttextures.com/patterns/lace.png')";
+  const silkLaceBgLeft = "linear-gradient(120deg, #fff0f6 60%, #e3c6c6 100%)";
+  const silkLaceBgRight = "linear-gradient(-120deg, #fff0f6 60%, #e3c6c6 100%)";
 
   return (
     <AnimatePresence>
@@ -43,7 +41,6 @@ export default function OpeningAnimation({ onFinish }: CurtainOpeningProps) {
             height: "100vh",
             background: silkLaceBgLeft,
             backgroundBlendMode: "overlay",
-
             overflow: "hidden",
             filter: "brightness(1.04)",
           }}
@@ -62,7 +59,6 @@ export default function OpeningAnimation({ onFinish }: CurtainOpeningProps) {
             height: "100vh",
             background: silkLaceBgRight,
             backgroundBlendMode: "overlay",
-
             overflow: "hidden",
             filter: "brightness(1.04)",
           }}
