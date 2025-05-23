@@ -1,7 +1,7 @@
 import React from "react";
 import ClassicTemplate from "./templates/ClassicTemplate";
 
-const MakerPage = () => {
+const PreviewPage = () => {
   return (
     <div>
       <ClassicTemplate
@@ -16,4 +16,4 @@ const MakerPage = () => {
   );
 };
 
-export default MakerPage;
+export default PreviewPage;

@@ -1,52 +1,107 @@
 "use client";
 
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import CreateIcon from "@mui/icons-material/Create";
 import { useRouter } from "next/navigation";
+import AvatarButton from "./AvatarButton";
+import { useState } from "react";
+import OpeningAnimation from "./OpeningAnimation";
 
 export default function IndexPage() {
+  const [curtainOpen, setCurtainOpen] = useState(true);
   const router = useRouter();
+
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "linear-gradient(135deg, #f8fafc 0%, #ffe3e3 100%)",
-        padding: 2,
-      }}
-    >
-      <CreateIcon sx={{ fontSize: 60, color: "#1976d2", mb: 2 }} />
-      <Typography
-        variant="h2"
-        sx={{ fontWeight: 700, mb: 1, color: "#1976d2", textAlign: "center" }}
-      >
-        Merry Card Maker
-      </Typography>
-      <Typography
-        variant="subtitle1"
-        sx={{ mb: 4, color: "#6d4c41", textAlign: "center" }}
-      >
-        나만의 모바일 초대장을 쉽고 예쁘게 만들어보세요!
-      </Typography>
-      <Button
-        variant="contained"
-        color="primary"
-        size="large"
+    <>
+      {curtainOpen && (
+        <OpeningAnimation onFinish={() => setCurtainOpen(false)} />
+      )}
+      <Box
         sx={{
-          borderRadius: 8,
-          px: 5,
-          py: 1.5,
-          fontWeight: 600,
-          fontSize: "1.1rem",
-          boxShadow: 2,
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "linear-gradient(135deg, #f8fafc 0%, #ffe3e3 100%)",
+
+          filter: curtainOpen ? "blur(2px)" : "none",
+          pointerEvents: curtainOpen ? "none" : "auto",
         }}
-        onClick={() => router.push("/maker")}
       >
-        초대장 만들기 시작
-      </Button>
-    </Box>
+        <Box
+          sx={{
+            backgroundColor: "#dddddd",
+            borderRadius: 2,
+            padding: 2,
+            width: "100vw",
+            height: "40vh",
+          }}
+        >
+          이미지
+        </Box>
+        <Box
+          sx={{
+            height: "60vh",
+            padding: 2,
+          }}
+        >
+          <Typography
+            fontSize={"20px"}
+            fontWeight={"bold"}
+            gutterBottom
+            textAlign={"center"}
+          >
+            어플리케이션 제목
+          </Typography>
+          <Typography fontSize={"16px"} gutterBottom textAlign={"center"}>
+            어플리케이션 설명
+            <br />
+            어플리케이션 설명 어플리케이션 설명
+          </Typography>
+
+          <Box pt={4}>
+            <Typography fontSize={"14px"} gutterBottom textAlign={"center"}>
+              간편 로그인
+            </Typography>
+            <Grid
+              container
+              direction="row"
+              spacing={2}
+              sx={{ justifyContent: "center", alignItems: "center" }}
+            >
+              {/* SNS 로그인 버튼들 */}
+              <Grid>
+                <AvatarButton
+                  src="/icons/naver_round.png"
+                  text="네이버"
+                  onClick={() => {
+                    router.push("/preview");
+                  }}
+                />
+              </Grid>
+              <Grid>
+                <AvatarButton
+                  src="/icons/kakao_round.png"
+                  text="카카오"
+                  onClick={() => {
+                    router.push("/preview");
+                  }}
+                />
+              </Grid>
+              <Grid>
+                <AvatarButton
+                  src="/icons/google_round.png"
+                  text="구글"
+                  onClick={() => {
+                    router.push("/preview");
+                  }}
+                />
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+      </Box>
+    </>
   );
 }

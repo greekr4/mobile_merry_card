@@ -6,10 +6,11 @@ import { Mousewheel, EffectFade, Pagination } from "swiper/modules";
 import Image from "next/image";
 import { SectionBox } from "./TemplateStyle";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CustomCalendar from "./CustomCalendar";
 import CountDown from "./CountDown";
 import { FamillyContact } from "./FamillyContact";
+import LoadingPage from "@/component/loading/LoadingPage";
 
 export default function ClassicTemplate({
   groom,
@@ -27,6 +28,13 @@ export default function ClassicTemplate({
   message?: string;
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return <LoadingPage />;
 
   return (
     <Box
@@ -91,6 +99,7 @@ export default function ClassicTemplate({
                     style={{ objectFit: "cover" }}
                     width={270}
                     height={270}
+                    priority
                   />
                 </Box>
                 <Box
@@ -107,6 +116,7 @@ export default function ClassicTemplate({
                     style={{ objectFit: "cover" }}
                     width={270}
                     height={270}
+                    priority
                   />
                 </Box>
               </Box>
@@ -140,6 +150,7 @@ export default function ClassicTemplate({
                     alt="화환"
                     width={234 / 3}
                     height={100 / 3}
+                    priority
                   />
                 </Box>
                 <Typography fontSize={16} mt={3} px={5} color="text.secondary">
@@ -186,6 +197,7 @@ export default function ClassicTemplate({
                   alt="결혼식 초대장"
                   style={{ objectFit: "cover" }}
                   fill
+                  priority
                 />
               </Box>
             </SectionBox>

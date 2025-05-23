@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { CountDownCard } from "./TemplateStyle";
