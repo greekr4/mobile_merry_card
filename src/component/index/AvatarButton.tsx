@@ -12,8 +12,6 @@ const AvatarButton = ({
   onClick?: () => void;
   noLastSnsType?: boolean;
 }) => {
-  const lastSnsType = sessionStorage.getItem("LastSnsType");
-
   return (
     <>
       <IconButton color="primary" onClick={onClick}>
@@ -35,7 +33,7 @@ const AvatarButton = ({
       {!noLastSnsType && (
         <Box
           sx={{
-            display: lastSnsType === text ? "block" : "none",
+            display: "block",
             position: "relative",
             userSelect: "none",
             my: 0.3,
